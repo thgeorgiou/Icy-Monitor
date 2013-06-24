@@ -7,7 +7,7 @@ Monitor your PC using your Android device!
 
 #### Download
  * Play Store Link (soon)
- * [Windows Server](https://dl.dropboxusercontent.com/u/11392968/ComputerMonitorServer.zip)
+ * [Windows Server](https://www.dropbox.com/s/eq48dnvhjfvy15i/Icy%20Monitor%20Server%201.0.zip)
  
 
 
