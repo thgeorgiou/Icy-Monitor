@@ -8,10 +8,8 @@ Monitor your PC using your Android device!
 #### Download
  * Play Store Link (soon)
  * [Windows Server](https://www.dropbox.com/s/eq48dnvhjfvy15i/Icy%20Monitor%20Server%201.0.zip)
- 
 
-
-Features:
+#### Features:
 * Get graphs about your CPU (load, temperature, clock, power), GPU (load, clock, temperature, fan) and system (fans, temperature, voltages).
 * Customize graph colors to your liking.
 * Get information about each filesystem and each process running.
@@ -19,8 +17,9 @@ Features:
 * Clean, beautiful interface with tablet support.
  
 #### Setup
- Just download the server at your computer and leave it running. At your Android device, install the apk
- and a new server, pointing to your computer's address. Also a really basic web interface is available at localhost:28622.
+ Download the server application using the link above. Extract all files somewhere and run the application as administratos. 
+ An icon should appear at your system tray, right click it and select 'Open Firewall'. Now you can connect from the phone app by typing in your computer's IP address
+ followed by ":26822". If you want to access the server through the Internet you will have to setup port forwarding.
 
 #### Libraries
  Computer Monitor uses [HoloColorPicker](https://github.com/LarsWerkman/HoloColorPicker/blob) by LersWerkman.
