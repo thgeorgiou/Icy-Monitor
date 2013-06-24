@@ -19,7 +19,7 @@ public partial class About : Form {
 
     private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
         try {
-            System.Diagnostics.Process.Start("https://github.com/sakisds/Icy-Monitor");
+            System.Diagnostics.Process.Start("http://sakisds.github.io/Icy-Monitor/");
         } catch (System.ComponentModel.Win32Exception noBrowser) {
             if (noBrowser.ErrorCode == -2147467259) MessageBox.Show(noBrowser.Message);
         } catch (System.Exception other) {
