@@ -6,7 +6,7 @@ Icy Monitor
 Monitor your PC using your Android device!
 
 #### Download
- * [Play Store link](https://dl.dropboxusercontent.com/u/11392968/ComputerMonitor.apk)
+ * Play Store Link (soon)
  * [Windows Server](https://dl.dropboxusercontent.com/u/11392968/ComputerMonitorServer.zip)
  
 
