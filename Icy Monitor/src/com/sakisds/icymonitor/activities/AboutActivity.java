@@ -51,7 +51,7 @@ public class AboutActivity extends Activity {
                 finish();
                 return (true);
             case R.id.item_github:
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/sakisds/icymonitor"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://sakisds.github.io/Icy-Monitor/"));
                 startActivity(browserIntent);
                 return true;
             case R.id.item_contact:
