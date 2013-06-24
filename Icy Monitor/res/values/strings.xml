@@ -111,4 +111,5 @@
     <string name="error_outdated_server">Incompatible server version</string>
     <string name="error_invalid_response">Invalid response received</string>
     <string name="error_empty_name">Empty name</string>
+    <string name="help_text">Please visit http://sakisds.github.io/Icy-Monitor/ from your computer and follow the instructions on how to setup the server.</string>
 </resources>

@@ -17,7 +17,9 @@
 package com.sakisds.icymonitor.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
@@ -88,7 +90,7 @@ public class AddServerActivity extends Activity implements Spinner.OnItemSelecte
                 finish();
                 return (true);
             case R.id.menu_help:
-                // TODO add help dialog
+                showHelpDialog();
                 return true;
         }
 
@@ -105,6 +107,20 @@ public class AddServerActivity extends Activity implements Spinner.OnItemSelecte
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
         // Do nothing
+    }
+
+    private void showHelpDialog() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        // set title
+        alertDialogBuilder.setTitle(getString(R.string.menu_help));
+        // set dialog message
+        alertDialogBuilder
+                .setMessage(getString(R.string.help_text))
+                .setCancelable(true);
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        // show it
+        alertDialog.show();
     }
 
     private void saveServer(String url) {
