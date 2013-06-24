@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using IcyMonitorServer.Properties;
 using OpenHardwareMonitor.Hardware;
 using IcyMonitorServer;
+using Microsoft.Win32;
 
 public class TrayApplicationContext : ApplicationContext {
     #region Private Members
@@ -14,6 +15,7 @@ public class TrayApplicationContext : ApplicationContext {
     private ToolStripMenuItem mDisplayForm;
     private ToolStripMenuItem mExitApplication;
     private ToolStripMenuItem mOpenFirewall;
+    private ToolStripMenuItem mRunOnStartup;
     private HttpServer mServer;
     private Computer mComputer;
     #endregion
@@ -33,6 +35,7 @@ public class TrayApplicationContext : ApplicationContext {
         mDisplayForm = new ToolStripMenuItem();
         mExitApplication = new ToolStripMenuItem();
         mOpenFirewall = new ToolStripMenuItem();
+        mRunOnStartup = new ToolStripMenuItem();
 
         //Attach the menu to the notify icon
         mNotifyIcon.ContextMenuStrip = mContextMenu;
@@ -45,6 +48,13 @@ public class TrayApplicationContext : ApplicationContext {
         mOpenFirewall.Text = "Open Firewall";
         mOpenFirewall.Click += new EventHandler(mOpenFirewall_Click);
         mContextMenu.Items.Add(mOpenFirewall);
+
+        mRunOnStartup.Text = "Run on startup";
+        RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+        if (rk.GetValue("Icy Monitor Server") != null) { mRunOnStartup.Checked = true; }
+        mRunOnStartup.CheckOnClick = true;
+        mRunOnStartup.Click += new EventHandler(mRunOnStartup_Click);
+        mContextMenu.Items.Add(mRunOnStartup);
 
         mExitApplication.Text = "Exit";
         mExitApplication.Click += new EventHandler(mExitApplication_Click);
@@ -95,5 +105,16 @@ public class TrayApplicationContext : ApplicationContext {
 
     void mOpenFirewall_Click(object sender, EventArgs e) {
         System.Diagnostics.Process.Start("netsh", " advfirewall firewall add rule name=\"Icy Monitor Server\" dir=in action=allow protocol=TCP localport=28622");
+    }
+
+    private void mRunOnStartup_Click(object sender, EventArgs e) {
+        RegistryKey rk = Registry.CurrentUser.OpenSubKey
+            ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+        if (mRunOnStartup.Checked)
+            rk.SetValue("Icy Monitor Server", Application.ExecutablePath.ToString());
+        else
+            rk.DeleteValue("Icy Monitor Server", false);
+
     }
 }
