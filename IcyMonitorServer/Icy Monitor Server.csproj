@@ -114,7 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LICENSE" />
-    <None Include="NOTICE" />
     <Content Include="Resources\icon_app.ico" />
     <Content Include="Resources\index.html" />
     <Content Include="Resources\javascript\jquery.flot.js" />

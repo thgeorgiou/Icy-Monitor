@@ -94,6 +94,6 @@ public class TrayApplicationContext : ApplicationContext {
     }
 
     void mOpenFirewall_Click(object sender, EventArgs e) {
-        System.Diagnostics.Process.Start("netsh", " advfirewall firewall add rule name=\"Computer Monitor Server\" dir=in action=allow protocol=TCP localport=28622");
+        System.Diagnostics.Process.Start("netsh", " advfirewall firewall add rule name=\"Icy Monitor Server\" dir=in action=allow protocol=TCP localport=28622");
     }
 }
