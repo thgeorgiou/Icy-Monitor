@@ -108,7 +108,7 @@ public class TrayApplicationContext : ApplicationContext {
     }
 
     private void mRunOnStartup_Click(object sender, EventArgs e) {
-        RegistryKey rk = Registry.CurrentUser.OpenSubKey
+        RegistryKey rk = Registry.LocalMachine.OpenSubKey
             ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
         if (mRunOnStartup.Checked)
