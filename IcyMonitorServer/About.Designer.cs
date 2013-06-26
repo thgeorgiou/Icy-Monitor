@@ -36,7 +36,7 @@
         this.label1.Name = "label1";
         this.label1.Size = new System.Drawing.Size(120, 13);
         this.label1.TabIndex = 0;
-        this.label1.Text = "Icy Monitor Server 1.0.1";
+        this.label1.Text = "Icy Monitor Server 1.0.2";
         // 
         // textBox1
         // 
