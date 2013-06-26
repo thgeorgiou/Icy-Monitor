@@ -42,7 +42,7 @@ public class AddServerActivity extends Activity implements Spinner.OnItemSelecte
 
     private SharedPreferences mSettings;
     private ImageView mImageView_type;
-    private EditText mEditText_name, mEditText_address;
+    private EditText mEditText_name, mEditText_address, mEditText_port;
     private Spinner mSpinner;
 
     @Override
@@ -58,6 +58,7 @@ public class AddServerActivity extends Activity implements Spinner.OnItemSelecte
         mSpinner = (Spinner) findViewById(R.id.spinner_type);
         mEditText_address = (EditText) findViewById(R.id.editText_address);
         mEditText_name = (EditText) findViewById(R.id.editText_name);
+        mEditText_port = (EditText) findViewById(R.id.editText_port);
 
         // Setup views
         mSpinner.setOnItemSelectedListener(this);
@@ -136,12 +137,16 @@ public class AddServerActivity extends Activity implements Spinner.OnItemSelecte
         finish();
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public void onClick(View view) {
         // Check if name is empty
         if (mEditText_name.getText().toString().equals("")) {
             mEditText_name.setError(getResources().getString(R.string.error_empty_name));
             mEditText_name.requestFocus();
+        } else if (mEditText_port.getText().toString().equals("")) {
+            mEditText_port.setError(getString(R.string.error_empty_port));
+            mEditText_port.requestFocus();
         } else { // If it's not
             // Validate URL
             String url = mEditText_address.getText().toString();
@@ -149,6 +154,7 @@ public class AddServerActivity extends Activity implements Spinner.OnItemSelecte
             if (!url.substring(0, 7).equals("http://")) {
                 url = "http://" + url;
             }
+            url += ":" + mEditText_port.getText().toString();
             if (!URLUtil.isValidUrl(url)) { // If invalid
                 mEditText_address.setError(getResources().getString(R.string.error_invalid_address));
                 mEditText_address.requestFocus();
