@@ -18,7 +18,7 @@
 <resources>
     <!-- General -->
     <string name="app_name">Icy Monitor</string>
-    <string name="activity_title_picker">Set color…</string>
+    <string name="activity_title_picker">Edit…</string>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
     <!-- Main -->

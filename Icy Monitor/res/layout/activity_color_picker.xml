@@ -14,20 +14,18 @@
   ~    See the License for the specific language governing permissions and
   ~    limitations under the License.
   -->
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="16dp">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="16dp"
+    android:layout_marginLeft="16dp">
 
     <com.larswerkman.colorpicker.ColorPicker
         android:id="@+id/picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_centerHorizontal="true"/>
 
     <com.larswerkman.colorpicker.ValueBar
         android:id="@+id/valuebar"
@@ -51,5 +49,15 @@
         android:layout_alignLeft="@+id/valuebar"
         android:layout_alignRight="@+id/valuebar"
         android:entries="@array/default_color_values"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_name"
+        android:inputType="text"
+        android:hint="@string/hint_name"
+        android:layout_below="@+id/spinner_default_colors"
+        android:layout_alignLeft="@+id/spinner_default_colors"
+        android:layout_alignRight="@+id/saturationbar"/>
 
 </RelativeLayout>

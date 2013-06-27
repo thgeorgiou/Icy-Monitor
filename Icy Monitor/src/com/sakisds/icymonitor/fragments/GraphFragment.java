@@ -32,7 +32,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.sakisds.icymonitor.R;
 import com.sakisds.icymonitor.RandomColor;
-import com.sakisds.icymonitor.activities.ColorPickerActivity;
+import com.sakisds.icymonitor.activities.EditActivity;
 import com.sakisds.icymonitor.activities.MainViewActivity;
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
@@ -182,8 +182,8 @@ public class GraphFragment extends ListFragment {
             // Setup onclick listener
             getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView parent, View v, int position, long id) {
-                    String name = ((TextView) v.findViewById(R.id.text_name)).getText().toString();
-                    Intent intent = new Intent(getActivity(), ColorPickerActivity.class);
+                    String name = (String) v.findViewById(R.id.text_name).getTag(R.string.key_name);
+                    Intent intent = new Intent(getActivity(), EditActivity.class);
                     intent.putExtra(EXTRAS_COLOR, name + "_" + mDataType);
                     startActivity(intent);
                 }
@@ -256,7 +256,9 @@ public class GraphFragment extends ListFragment {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View rowView = inflater.inflate(R.layout.list_item_graph, parent, false);
 
-            ((TextView) rowView.findViewById(R.id.text_name)).setText(mData[position]);
+            TextView label = (TextView) rowView.findViewById(R.id.text_name);
+            label.setText(mSettings.getString("name_" + mData[position] + "_" + mDataType, mData[position]));
+            label.setTag(R.string.key_name, mData[position]);
             if (mLastData != null) {
                 ((TextView) rowView.findViewById(R.id.text_value)).setText(mLastData[position] + mDataType);
             }

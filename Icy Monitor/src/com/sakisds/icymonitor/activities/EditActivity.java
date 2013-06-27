@@ -24,6 +24,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import com.larswerkman.colorpicker.ColorPicker;
 import com.larswerkman.colorpicker.SaturationBar;
@@ -32,7 +33,7 @@ import com.sakisds.icymonitor.R;
 import com.sakisds.icymonitor.RandomColor;
 import com.sakisds.icymonitor.fragments.GraphFragment;
 
-public class ColorPickerActivity extends Activity implements AdapterView.OnItemSelectedListener, ColorPicker.OnColorChangedListener {
+public class EditActivity extends Activity implements AdapterView.OnItemSelectedListener, ColorPicker.OnColorChangedListener {
 
     private static final int POSITION_CUSTOM = 0;
     private static final int POSITION_BLUE = 1;
@@ -42,6 +43,7 @@ public class ColorPickerActivity extends Activity implements AdapterView.OnItemS
     private static final int POSITION_ORANGE = 5;
 
     private ColorPicker mPicker;
+    private EditText mEditText;
     private String mColorToChange;
     private SharedPreferences mSettings;
     private int mFirstChange = 0;
@@ -53,6 +55,11 @@ public class ColorPickerActivity extends Activity implements AdapterView.OnItemS
 
         // Load settings
         mSettings = getSharedPreferences(MainViewActivity.SHAREDPREFS_FILE, 0);
+        mColorToChange = getIntent().getStringExtra(GraphFragment.EXTRAS_COLOR);
+
+        // Set edittext
+        mEditText = (EditText) findViewById(R.id.editText_name);
+        mEditText.setText(mSettings.getString("name_" + mColorToChange, ""));
 
         // Create colour picker
         mPicker = (ColorPicker) findViewById(R.id.picker);
@@ -62,8 +69,6 @@ public class ColorPickerActivity extends Activity implements AdapterView.OnItemS
         mPicker.addSaturationBar(saturationBar);
         mPicker.addValueBar(valueBar);
 
-        // Get which color we change
-        mColorToChange = getIntent().getStringExtra(GraphFragment.EXTRAS_COLOR);
         mPicker.setColor(mSettings.getInt(mColorToChange, RandomColor.getColor(getResources())));
 
         // Set current color
@@ -88,7 +93,7 @@ public class ColorPickerActivity extends Activity implements AdapterView.OnItemS
                 finish();
                 return true;
             case R.id.item_confirm:
-                setColors();
+                setSettings();
                 finish();
                 return true;
             case R.id.item_cancel:
@@ -98,9 +103,14 @@ public class ColorPickerActivity extends Activity implements AdapterView.OnItemS
         return super.onOptionsItemSelected(item);
     }
 
-    private void setColors() {
+    private void setSettings() {
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putInt(mColorToChange, mPicker.getColor());
+        if(!mEditText.getText().toString().equals("")) {
+            editor.putString("name_" + mColorToChange, mEditText.getText().toString());
+        } else {
+            editor.remove("name_" + mColorToChange);
+        }
         editor.commit();
     }
 
