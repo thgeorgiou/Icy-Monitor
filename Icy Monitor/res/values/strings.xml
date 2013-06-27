@@ -109,6 +109,7 @@
     <string name="error_could_not_connect">Could not connect to server! Make sure you are connected to the internet and
         that the server is working properly.
     </string>
+    <string name="warn_update_server">An updated server version is available. It is recommended that you update soon.</string>
     <!-- Add new server activity -->
     <string-array name="type_spinner_values">
         <item>Desktop</item>

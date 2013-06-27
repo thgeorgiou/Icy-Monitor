@@ -44,7 +44,8 @@ import java.util.List;
  * Created by sakisds on 23/05/13.
  */
 public class ConnectionActivity extends ListActivity {
-    public final static String ACCEPTED_SERVER_VERSION = "1.0";
+    public final static String ACCEPTED_SERVER_VERSION = "1.1";
+    public final static String COMPATIBLE_SERVER_VERSION = "1.0";
 
     private SharedPreferences mSettings;
     private ComputerInfo[] mData;
@@ -83,6 +84,7 @@ public class ConnectionActivity extends ListActivity {
         // Create a dialog
         final ProgressDialog progress = ProgressDialog.show(this, "", getResources().getString(R.string.connecting), false);
 
+        final Context context = this;
         // Send request
         client.get(url + "/about", new JsonHttpResponseHandler() {
             @Override
@@ -91,6 +93,11 @@ public class ConnectionActivity extends ListActivity {
                 try {
                     String version = response.getString("Version");
                     if (version.equals(ACCEPTED_SERVER_VERSION)) {
+                        Intent intent = new Intent(getBaseContext(), MainViewActivity.class);
+                        intent.putExtra(MainViewActivity.EXTRA_ADDRESS, url);
+                        startActivity(intent);
+                    } else if (version.equals(COMPATIBLE_SERVER_VERSION)) {
+                        Toast.makeText(context, getString(R.string.warn_update_server), Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getBaseContext(), MainViewActivity.class);
                         intent.putExtra(MainViewActivity.EXTRA_ADDRESS, url);
                         startActivity(intent);
