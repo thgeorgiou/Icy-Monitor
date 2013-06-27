@@ -20,5 +20,6 @@
     <string name="key_computerslist_index">compListIndex</string>
     <string name="key_grid_x">gridX</string>
     <string name="key_grid_y">gridY</string>
+    <string name="key_line_width">lnwidth</string>
     <string name="key_name">defaultname</string>
 </resources>

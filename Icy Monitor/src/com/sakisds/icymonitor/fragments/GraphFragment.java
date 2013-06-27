@@ -61,6 +61,7 @@ public class GraphFragment extends ListFragment {
     private String[] mNames;
     private float[] mLastData;
     private int[] mColors;
+    private float mLineWidth = 1;
 
     // Stuff
     private String mDataType = "";
@@ -96,12 +97,14 @@ public class GraphFragment extends ListFragment {
         mRenderer.setZoomEnabled(false, false);
         mRenderer.setPanEnabled(false, false);
 
+        mLineWidth = Float.valueOf(mSettings.getString(getString(R.string.key_line_width), "2"));
         return mRootView;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        mLineWidth = Float.valueOf(mSettings.getString(getString(R.string.key_line_width), "2"));
         refreshColors(mNames);
         mRenderer.setShowGridX(mSettings.getBoolean(getString(R.string.key_grid_x), false));
         mRenderer.setShowGridY(mSettings.getBoolean(getString(R.string.key_grid_y), false));
@@ -142,6 +145,7 @@ public class GraphFragment extends ListFragment {
         for (int i = 0; i < size; i++) {
             mColors[i] = mSettings.getInt(names[i] + "_" + mDataType, RandomColor.getColor(getResources()));
             mSeriesRenderer[i].setColor(mColors[i]);
+            mSeriesRenderer[i].setLineWidth(mLineWidth);
         }
 
         // Save colors in case they are random
@@ -168,6 +172,7 @@ public class GraphFragment extends ListFragment {
             for (int i = 0; i < size; i++) {
                 mSeries[i] = new XYSeries("");
                 mSeriesRenderer[i] = new XYSeriesRenderer();
+                mSeriesRenderer[i].setLineWidth(mLineWidth);
 
                 mDataset.addSeries(mSeries[i]);
                 mRenderer.addSeriesRenderer(mSeriesRenderer[i]);

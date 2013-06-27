@@ -85,6 +85,19 @@
         <item>500</item>
         <item>250</item>
     </string-array>
+    <string name="setting_line_width">Line width</string>
+    <string-array name="setting_line_width_array">
+        <item>1px</item>
+        <item>2px</item>
+        <item>3px</item>
+        <item>4px</item>
+    </string-array>
+    <string-array name="setting_line_width_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
     <string name="setting_grid_x">Show X grid lines</string>
     <string name="setting_grid_y">Show Y grid lines</string>
     <!-- Delete list item dialog -->
