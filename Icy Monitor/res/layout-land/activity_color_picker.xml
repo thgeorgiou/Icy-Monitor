@@ -26,28 +26,47 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"/>
 
-    <com.larswerkman.colorpicker.ValueBar
-        android:id="@+id/valuebar"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/saturationbar"
-        android:layout_toRightOf="@+id/picker"/>
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/picker"
+        android:layout_marginRight="20dp">
 
-    <com.larswerkman.colorpicker.SaturationBar
-        android:id="@+id/saturationbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="99dp"
-        android:layout_toRightOf="@+id/picker"/>
+        <com.larswerkman.colorpicker.ValueBar
+            android:id="@+id/valuebar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/saturationbar"
+            android:layout_toRightOf="@+id/picker"/>
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner_default_colors"
-        android:entries="@array/default_color_values"
-        android:layout_below="@+id/valuebar"
-        android:layout_alignLeft="@+id/valuebar"
-        android:layout_alignRight="@+id/valuebar"/>
+        <com.larswerkman.colorpicker.SaturationBar
+            android:id="@+id/saturationbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/picker"
+            android:layout_toRightOf="@+id/picker"/>
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_default_colors"
+            android:entries="@array/default_color_values"
+            android:layout_below="@+id/valuebar"
+            android:layout_alignLeft="@+id/valuebar"
+            android:layout_alignRight="@+id/valuebar"/>
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_name"
+            android:inputType="text"
+            android:hint="@string/hint_name"
+            android:layout_below="@+id/spinner_default_colors"
+            android:layout_toRightOf="@+id/picker"
+            android:layout_alignRight="@+id/spinner_default_colors"/>
+    </LinearLayout>
 
 </RelativeLayout>
