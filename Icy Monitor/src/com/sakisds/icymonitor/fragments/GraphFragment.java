@@ -26,10 +26,7 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+import android.widget.*;
 import com.sakisds.icymonitor.R;
 import com.sakisds.icymonitor.RandomColor;
 import com.sakisds.icymonitor.activities.EditActivity;
@@ -241,7 +238,10 @@ public class GraphFragment extends ListFragment {
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        clearGraphs();
+        if(mLastData != null) {
+            clearGraphs();
+            Toast.makeText(getActivity(), "Low on memory. Cleared graphs.", Toast.LENGTH_LONG).show();
+        }
     }
 
     private class GraphListArrayAdapter extends ArrayAdapter<String> {
