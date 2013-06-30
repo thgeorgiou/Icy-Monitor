@@ -4,28 +4,24 @@ interface JSONNameValue { }
 
 class JSONNameValueInt : JSONNameValue{
     public String Name;
-    public int Value, Min, Max;
+    public int Value;
 
-    public JSONNameValueInt(String name, int value, int min, int max) {
+    public JSONNameValueInt(String name, int value) {
         this.Name = name;
         this.Value = value;
-        this.Min = min;
-        this.Max = max;
     }
 }
 
 class JSONNameValueFloat : JSONNameValue{
     public String Name;
-    public float Value, Min, Max;
+    public float Value;
 
-    public JSONNameValueFloat(String name, float value, float min, float max) {
+    public JSONNameValueFloat(String name, float value) {
         this.Name = name;
         this.Value = value;
-        this.Min = min;
-        this.Max = max;
     }
 
-    public JSONNameValueFloat(String name, float value, float min, float max, int round) {
+    public JSONNameValueFloat(String name, float value, int round) {
         this.Name = name;
         this.Value = (float) Math.Round(value, round, MidpointRounding.ToEven);
     }

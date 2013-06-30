@@ -45,9 +45,9 @@ class JSONSystemData {
 
             foreach (ISensor sensor in superIO.Sensors) {
                 switch (sensor.SensorType) {
-                    case SensorType.Voltage: Voltages[iVoltages] = new JSONNameValueFloat(sensor.Name, (float) sensor.Value, (float) sensor.Min, (float) sensor.Max, 3); iVoltages++; break;
-                    case SensorType.Fan: Fans[iFans] = new JSONNameValueInt(sensor.Name, (int) sensor.Value, (int) sensor.Min, (int) sensor.Max); iFans++; break;
-                    case SensorType.Temperature: Temp[iTemp] = new JSONNameValueFloat(sensor.Name, (float) sensor.Value, (float) sensor.Min, (float) sensor.Max, 1); iTemp++; break;
+                    case SensorType.Voltage: Voltages[iVoltages] = new JSONNameValueFloat(sensor.Name, (float) sensor.Value, 3); iVoltages++; break;
+                    case SensorType.Fan: Fans[iFans] = new JSONNameValueInt(sensor.Name, (int) sensor.Value); iFans++; break;
+                    case SensorType.Temperature: Temp[iTemp] = new JSONNameValueFloat(sensor.Name, (float) sensor.Value, 1); iTemp++; break;
                 }
             }
         } else { // If we don't have a superIO chip. Happens with some cheap MBs or with some laptops.

@@ -39,19 +39,19 @@ class JSONGPUData {
                 foreach (ISensor sensor in hardware.Sensors) {
                     switch (sensor.SensorType) {
                         case SensorType.Clock:
-                            Clock[iClock] = new JSONNameValueInt(sensor.Name + " (" + (gpu + 1) + ")", (int) sensor.Value, (int) sensor.Min, (int) sensor.Max);
+                            Clock[iClock] = new JSONNameValueInt(sensor.Name + " (" + (gpu + 1) + ")", (int) sensor.Value);
                             iClock++; 
                             break;
                         case SensorType.Temperature:
-                            Temp[iTemp] = new JSONNameValueFloat(sensor.Name + " (" + (gpu + 1) + ")", (float) sensor.Value, (float) sensor.Min, (float) sensor.Max);
+                            Temp[iTemp] = new JSONNameValueFloat(sensor.Name + " (" + (gpu + 1) + ")", (float) sensor.Value);
                             iTemp++; 
                             break;
                         case SensorType.Load:
-                            Load[iLoad] = new JSONNameValueInt(sensor.Name + " (" + (gpu + 1) + ")", (int) sensor.Value, (int) sensor.Min, (int) sensor.Max);
+                            Load[iLoad] = new JSONNameValueInt(sensor.Name + " (" + (gpu + 1) + ")", (int) sensor.Value);
                             iLoad++; 
                             break;
                         case SensorType.Fan:
-                            Fans[iFans] = new JSONNameValueInt(sensor.Name + " (" + (gpu + 1) + ")", (int) sensor.Value, (int) sensor.Min, (int) sensor.Max);
+                            Fans[iFans] = new JSONNameValueInt(sensor.Name + " (" + (gpu + 1) + ")", (int) sensor.Value);
                             iFans++; 
                             break;
                     }

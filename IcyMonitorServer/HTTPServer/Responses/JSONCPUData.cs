@@ -47,19 +47,19 @@ class JSONCPUData {
         foreach (ISensor sensor in cpu.Sensors) {
             switch (sensor.SensorType) {
                 case SensorType.Load:
-                    Load[iLoad] = new JSONNameValueInt(sensor.Name, (int) sensor.Value, (int) sensor.Min, (int) sensor.Max);
+                    Load[iLoad] = new JSONNameValueInt(sensor.Name, (int) sensor.Value);
                     iLoad++;
                     break;
                 case SensorType.Temperature:
-                    Temp[iTemp] = new JSONNameValueInt(sensor.Name, (int) sensor.Value, (int) sensor.Min, (int) sensor.Max);
+                    Temp[iTemp] = new JSONNameValueInt(sensor.Name, (int) sensor.Value);
                     iTemp++;
                     break;
                 case SensorType.Power:
-                    Power[iPower] = new JSONNameValueFloat(sensor.Name, (float) sensor.Value, (float) sensor.Min, (float) sensor.Max, 2);
+                    Power[iPower] = new JSONNameValueFloat(sensor.Name, (float) sensor.Value, 1);
                     iPower++;
                     break;
                 case SensorType.Clock:
-                    Clock[iClock] = new JSONNameValueInt(sensor.Name, (int) sensor.Value, (int) sensor.Min, (int) sensor.Max);
+                    Clock[iClock] = new JSONNameValueInt(sensor.Name, (int) sensor.Value);
                     iClock++;
                     break;
             }
