@@ -33,7 +33,6 @@ public class DataHttpRequestHandler : HttpRequestHandler {
                 case "gpu": message = handleGPU(); success = true; break;
                 case "disks": message = handleDisks(); success = true; break;
                 case "processes": message = handleProcesses(context.Request.QueryString["sort"]); success = true; break;
-                //case "system": message = handleSystem(context.Request.QueryString["sub"]); success = true; break;
                 case "system": message = handleSystem(); success = true; break;
             }
         } else {
