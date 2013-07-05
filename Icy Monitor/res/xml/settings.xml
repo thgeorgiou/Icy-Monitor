@@ -16,24 +16,27 @@
   -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference
-        android:entries="@array/setting_refresh_rate_array"
-        android:title="@string/setting_refresh_rate"
-        android:key="@string/key_refresh_rate"
-        android:entryValues="@array/setting_refresh_rate_values"
-        android:defaultValue="1000"/>
-    <ListPreference
-        android:entries="@array/setting_line_width_array"
-        android:title="@string/setting_line_width"
-        android:key="@string/key_line_width"
-        android:entryValues="@array/setting_line_width_values"
-        android:defaultValue="2"/>
-    <CheckBoxPreference
-        android:title="@string/setting_grid_x"
-        android:key="@string/key_grid_x"
-        android:defaultValue="false"/>
-    <CheckBoxPreference
-        android:title="@string/setting_grid_y"
-        android:key="@string/key_grid_y"
-        android:defaultValue="false"/>
+    <PreferenceCategory
+        android:title="@string/setting_cat_graphs">
+        <ListPreference
+            android:entries="@array/setting_refresh_rate_array"
+            android:title="@string/setting_refresh_rate"
+            android:key="@string/key_refresh_rate"
+            android:entryValues="@array/setting_refresh_rate_values"
+            android:defaultValue="1000"/>
+        <ListPreference
+            android:entries="@array/setting_line_width_array"
+            android:title="@string/setting_line_width"
+            android:key="@string/key_line_width"
+            android:entryValues="@array/setting_line_width_values"
+            android:defaultValue="2"/>
+        <CheckBoxPreference
+            android:title="@string/setting_grid_x"
+            android:key="@string/key_grid_x"
+            android:defaultValue="false"/>
+        <CheckBoxPreference
+            android:title="@string/setting_grid_y"
+            android:key="@string/key_grid_y"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
 </PreferenceScreen>

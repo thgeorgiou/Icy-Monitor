@@ -32,8 +32,7 @@ public class RandomColor {
      * @param res getResources()
      * @return A random color
      */
-    public static int getColor(Resources res) {
-        Random random = new Random();
+    public static int getColor(Random random, Resources res) {
         int r = random.nextInt(5);
 
         switch (r) {

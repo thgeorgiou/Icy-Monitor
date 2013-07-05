@@ -38,6 +38,8 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import java.util.Random;
+
 /**
  * Displays a graph and a list bellow it.
  * Created by Thanasis Georgiou on 20/06/13.
@@ -139,8 +141,9 @@ public class GraphFragment extends ListFragment {
         int size = names.length;
         mColors = new int[size];
 
+        Random rnd = new Random();
         for (int i = 0; i < size; i++) {
-            mColors[i] = mSettings.getInt(names[i] + "_" + mDataType, RandomColor.getColor(getResources()));
+            mColors[i] = mSettings.getInt(names[i] + "_" + mDataType, RandomColor.getColor(rnd, getResources()));
             mSeriesRenderer[i].setColor(mColors[i]);
             mSeriesRenderer[i].setLineWidth(mLineWidth);
         }

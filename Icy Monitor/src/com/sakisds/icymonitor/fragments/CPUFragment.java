@@ -90,7 +90,7 @@ public class CPUFragment extends ParentFragment {
 
             // TODO replace with string resources
             mTempFragment.init(tempNames, "C", 100);
-            mLoadFragment.init(loadNames, "%", 100);
+            mLoadFragment.init(loadNames, "%", 105);
             mClockFragment.init(clockNames, "MHz", 10000);
             mPowerFragment.init(powerNames, "W", 50);
         } catch (JSONException e) {
