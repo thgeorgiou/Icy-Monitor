@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenHardwareMonitor</RootNamespace>
-    <AssemblyName>OpenHardwareMonitorLib</AssemblyName>
+    <AssemblyName>IcyOpenHardwareMonitorLib</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>

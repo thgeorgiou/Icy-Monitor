@@ -44,8 +44,8 @@ import java.util.List;
  * Created by sakisds on 23/05/13.
  */
 public class ConnectionActivity extends ListActivity {
-    public final static String ACCEPTED_SERVER_VERSION = "1.1";
-    public final static String COMPATIBLE_SERVER_VERSION = "1.0";
+    public final static String ACCEPTED_SERVER_VERSION = "1.2";
+    public final static String COMPATIBLE_SERVER_VERSION = "0.0"; // Practically nothing
 
     private SharedPreferences mSettings;
     private ComputerInfo[] mData;
@@ -154,6 +154,9 @@ public class ConnectionActivity extends ListActivity {
             return true;
         } else if (item.getItemId() == R.id.item_about) {
             startActivity(new Intent(this, AboutActivity.class));
+            return true;
+        } else if (item.getItemId() == R.id.item_setup_gcm) {
+            startActivity(new Intent(this, NotificationSetupActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

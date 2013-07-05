@@ -24,6 +24,12 @@
         android:showAsAction="always"/>
 
     <item
+        android:id="@+id/item_setup_gcm"
+        android:showAsAction="never"
+        android:title="@string/menu_setup_notifications"
+        android:orderInCategory="9998"/>
+
+    <item
         android:id="@+id/item_about"
         android:showAsAction="never"
         android:title="@string/menu_main_about"

@@ -103,5 +103,9 @@ namespace OpenHardwareMonitor.Hardware {
       foreach (ISensor sensor in active)
         sensor.Accept(visitor);
     }
+
+    override public String ToString() {
+        return name;
+    }
   }
 }

@@ -66,6 +66,7 @@
     <string name="menu_github">Find me on Github</string>
     <string name="menu_contact">Contact me</string>
     <string name="menu_help">Help</string>
+    <string name="menu_setup_notifications">Setup notifications</string>
     <!-- Settings -->
     <string name="title_activity_settings">Settings</string>
     <string name="setting_refresh_rate">Graph refresh rate</string>
@@ -100,6 +101,7 @@
     </string-array>
     <string name="setting_grid_x">Show X grid lines</string>
     <string name="setting_grid_y">Show Y grid lines</string>
+    <string name="setting_cat_graphs">Graphs</string>
     <!-- Delete list item dialog -->
     <string name="yes">Yes</string>
     <string name="no">No</string>

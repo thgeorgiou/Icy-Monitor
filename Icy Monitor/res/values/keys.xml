@@ -22,4 +22,6 @@
     <string name="key_grid_y">gridY</string>
     <string name="key_line_width">lnwidth</string>
     <string name="key_name">defaultname</string>
+    <string name="key_notification">notifSound</string>
+    <string name="key_vibrate">notifVibrate</string>
 </resources>

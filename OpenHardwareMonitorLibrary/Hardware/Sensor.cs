@@ -235,5 +235,9 @@ namespace OpenHardwareMonitor.Hardware {
         this.control = value;
       }
     }
+
+    override public String ToString() {
+        return name + " (" + sensorType + ")";
+    }
   }
 }

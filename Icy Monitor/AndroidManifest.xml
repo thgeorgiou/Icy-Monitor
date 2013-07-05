@@ -25,6 +25,13 @@
         android:targetSdkVersion="17"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission android:name="com.sakisds.icymonitor.permission.C2D_MESSAGE"
+                android:protectionLevel="signature" />
+    <uses-permission android:name="com.sakisds.icymonitor.permission.C2D_MESSAGE" />
 
     <application
         android:allowBackup="true"
@@ -55,6 +62,18 @@
             android:name=".activities.AddServerActivity"
             android:label="@string/menu_add_server"
             android:windowSoftInputMode="stateVisible"/>
+        <activity
+            android:name=".activities.NotificationSetupActivity"
+            android:label="Notification Setup"/>
+        <receiver
+            android:name=".GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.sakisds.icymonitor" />
+            </intent-filter>
+        </receiver>
+        <!--<service android:name=".MyIntentService" />-->
     </application>
 
 </manifest>

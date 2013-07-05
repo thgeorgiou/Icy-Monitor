@@ -4,5 +4,5 @@ using System.Linq;
 using System.Text;
 
 class JSONAboutData {
-    public string Version = "1.1";
+    public string Version = "1.2";
 }
