@@ -7,7 +7,7 @@ Monitor your PC using your Android device!
 
 #### Download
  * [Play Store Link](https://play.google.com/store/apps/details?id=com.sakisds.icymonitor)
- * [Windows Server](http://sourceforge.net/projects/icymonitor/files/Icy%20Monitor%20Server%201.1.zip/download)
+ * [Windows Server](http://sourceforge.net/projects/icymonitor/files/)
 
 #### Features:
 * Get graphs about your CPU (load, temperature, clock, power), GPU (load, clock, temperature, fan) and system (fans, temperature, voltages).
