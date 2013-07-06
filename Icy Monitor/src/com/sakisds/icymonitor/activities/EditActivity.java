@@ -33,6 +33,8 @@ import com.sakisds.icymonitor.R;
 import com.sakisds.icymonitor.RandomColor;
 import com.sakisds.icymonitor.fragments.GraphFragment;
 
+import java.util.Random;
+
 public class EditActivity extends Activity implements AdapterView.OnItemSelectedListener, ColorPicker.OnColorChangedListener {
 
     private static final int POSITION_CUSTOM = 0;
@@ -69,7 +71,7 @@ public class EditActivity extends Activity implements AdapterView.OnItemSelected
         mPicker.addSaturationBar(saturationBar);
         mPicker.addValueBar(valueBar);
 
-        mPicker.setColor(mSettings.getInt(mColorToChange, RandomColor.getColor(getResources())));
+        mPicker.setColor(mSettings.getInt(mColorToChange, RandomColor.getColor(new Random(), getResources())));
 
         // Set current color
         mPicker.setOldCenterColor(mPicker.getColor());

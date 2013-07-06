@@ -111,6 +111,9 @@ public class MainViewActivity extends FragmentActivity implements ListView.OnIte
 
         // Check menus
         switch (item.getItemId()) {
+            case R.id.item_setup_gcm:
+                startActivity(new Intent(this, NotificationSetupActivity.class));
+                return true;
             case R.id.item_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
