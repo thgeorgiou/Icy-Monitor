@@ -51,7 +51,6 @@ class JSONSingleProcessData {
 
         // Round
         Mem = Math.Round(Mem, 1, MidpointRounding.ToEven);
-        
     }
 }
 

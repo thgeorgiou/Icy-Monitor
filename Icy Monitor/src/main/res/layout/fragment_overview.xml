@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/overview_scroll">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Info -->
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                  style="?android:attr/listSeparatorTextViewStyle"
+                  android:text="@string/os" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_OS"
+                android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Title" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_OSArch"
+                android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Title" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Title"
+                android:id="@+id/textView_hostname" />
+
+        </LinearLayout>
+
+        <!-- History -->
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                  style="?android:attr/listSeparatorTextViewStyle"
+                  android:text="@string/history" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:gravity="center"
+            android:id="@+id/textView_historySince" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="260dp"
+            android:id="@+id/graph_container"
+            android:paddingTop="4dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar_overview"
+                android:layout_gravity="center" />
+
+            <include
+                layout="@layout/view_error"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+        <!-- Uptime -->
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                  style="?android:attr/listSeparatorTextViewStyle"
+                  android:text="@string/uptime" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Title"
+            android:gravity="center"
+            android:id="@+id/textView_uptimeSince" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingBottom="8dp"
+            android:textAppearance="@android:style/TextAppearance.Holo.SearchResult.Subtitle"
+            android:id="@+id/textView_uptimeDate" />
+
+    </LinearLayout>
+</ScrollView>

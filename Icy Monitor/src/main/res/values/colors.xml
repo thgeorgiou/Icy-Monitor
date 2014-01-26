@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2013 Thanasis Georgiou
+  ~
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+
+<resources>
+    <color name="color_holo_blue">#33b5e5</color>
+    <color name="color_holo_red">#FF4444</color>
+    <color name="color_holo_green">#99CC00</color>
+    <color name="color_holo_purple">#AA66CC</color>
+    <color name="color_holo_orange">#FFBB33</color>
+
+    <color name="color_charcoal_grey">#666666</color>
+
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+    <color name="default_progress_bar_color">#FF33B5E5</color>
+
+    <color name="card_activity_background">#EEEEEEFF</color>
+
+    <!-- Color picker -->
+    <color name="palette_blue_1">#0099CC</color>
+    <color name="palette_blue_2">#1DA9DA</color>
+    <color name="palette_blue_3">#2CB1E1</color>
+    <color name="palette_blue_4">#33B5E5</color>
+    <color name="palette_blue_5">#8AD5F0</color>
+
+    <color name="palette_purple_1">#9933CC</color>
+    <color name="palette_purple_2">#B368D9</color>
+    <color name="palette_purple_3">#C182E0</color>
+    <color name="palette_purple_4">#C58BE2</color>
+    <color name="palette_purple_5">#D6ADEB</color>
+
+    <color name="palette_green_1">#669900</color>
+    <color name="palette_green_2">#83B600</color>
+    <color name="palette_green_3">#92C500</color>
+    <color name="palette_green_4">#99CC00</color>
+    <color name="palette_green_5">#C5E26D</color>
+
+    <color name="palette_orange_1">#FF8A00</color>
+    <color name="palette_orange_2">#FFA713</color>
+    <color name="palette_orange_3">#FFB61C</color>
+    <color name="palette_orange_4">#FFBD21</color>
+    <color name="palette_orange_5">#FFD980</color>
+
+    <color name="palette_red_1">#CC0000</color>
+    <color name="palette_red_2">#E92727</color>
+    <color name="palette_red_3">#F83A3A</color>
+    <color name="palette_red_4">#FF4444</color>
+    <color name="palette_red_5">#FF9494</color>
+</resources>

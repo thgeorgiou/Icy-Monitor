@@ -59,8 +59,12 @@
     <ApplicationIcon>Resources\icon_app.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Ionic.Zip">
+      <HintPath>lib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PushSharp.Android">
       <HintPath>lib\PushSharp.Android.dll</HintPath>
@@ -71,6 +75,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -79,50 +84,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DeviceManager.cs" />
+    <Compile Include="Data\Notification.cs" />
+    <Compile Include="Data\NotificationManager.cs" />
+    <Compile Include="Data\History.cs" />
+    <Compile Include="HTTPServer\Handlers\AuthEnabledHttpRequestHandler.cs" />
+    <Compile Include="HTTPServer\Handlers\RegisterHttpRequestHandler.cs" />
+    <Compile Include="HTTPServer\Responses\JSONDevicesList.cs" />
+    <Compile Include="HTTPServer\Responses\JSONDiskData.cs" />
+    <Compile Include="HTTPServer\Responses\JSONOverview.cs" />
     <Compile Include="Interface\About.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interface\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface\AddDevice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface\AddDevice.Designer.cs">
-      <DependentUpon>AddDevice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interface\AddNotification.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface\AddNotification.Designer.cs">
-      <DependentUpon>AddNotification.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interface\AppContext.cs" />
-    <Compile Include="HTTPServer\Handlers\AboutHttpRequestHandler.cs" />
+    <Compile Include="HTTPServer\Handlers\AuthHttpRequestHandler.cs" />
     <Compile Include="HTTPServer\Handlers\HttpRequestHandler.cs" />
     <Compile Include="HTTPServer\Handlers\InvalidHttpRequestHandler.cs" />
     <Compile Include="HTTPServer\Handlers\DataHttpRequestHandler.cs" />
-    <Compile Include="HTTPServer\Handlers\WebHttpRequestHandler.cs" />
     <Compile Include="HTTPServer\HttpResourceLocator.cs" />
     <Compile Include="HTTPServer\HttpServer.cs" />
-    <Compile Include="HTTPServer\Responses\JSONAboutData.cs" />
-    <Compile Include="HTTPServer\Responses\JSONDiskData.cs" />
+    <Compile Include="HTTPServer\Responses\JSONFSData.cs" />
     <Compile Include="HTTPServer\Responses\JSONNameValue.cs" />
     <Compile Include="HTTPServer\Responses\JSONGPUData.cs" />
     <Compile Include="HTTPServer\Responses\JSONCPUData.cs" />
     <Compile Include="HTTPServer\Responses\JSONProcessData.cs" />
     <Compile Include="HTTPServer\Responses\JSONSystemData.cs" />
-    <Compile Include="Interface\Device.cs" />
-    <Compile Include="Interface\JSONNotification.cs" />
-    <Compile Include="Interface\Notification.cs" />
-    <Compile Include="Interface\NotificationSetup.cs">
+    <Compile Include="Data\Device.cs" />
+    <Compile Include="Data\Settings.cs" />
+    <Compile Include="Interface\CheckForUpdatesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interface\NotificationSetup.Designer.cs">
-      <DependentUpon>NotificationSetup.cs</DependentUpon>
+    <Compile Include="Interface\CheckForUpdatesDialog.Designer.cs">
+      <DependentUpon>CheckForUpdatesDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface\Serializer.cs" />
-    <Compile Include="Interface\Settings.cs" />
+    <Compile Include="Interface\RegistrationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\RegistrationDialog.Designer.cs">
+      <DependentUpon>RegistrationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\SettingsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\SettingsDialog.Designer.cs">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -130,20 +139,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Interface\UpdateVisitor.cs" />
+    <Compile Include="UpdateVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Interface\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interface\AddDevice.resx">
-      <DependentUpon>AddDevice.cs</DependentUpon>
+    <EmbeddedResource Include="Interface\CheckForUpdatesDialog.resx">
+      <DependentUpon>CheckForUpdatesDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interface\AddNotification.resx">
-      <DependentUpon>AddNotification.cs</DependentUpon>
+    <EmbeddedResource Include="Interface\RegistrationDialog.resx">
+      <DependentUpon>RegistrationDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interface\NotificationSetup.resx">
-      <DependentUpon>NotificationSetup.cs</DependentUpon>
+    <EmbeddedResource Include="Interface\SettingsDialog.resx">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -155,10 +164,6 @@
     <None Include="app.config" />
     <None Include="LICENSE" />
     <Content Include="Resources\icon_app.ico" />
-    <Content Include="Resources\index.html" />
-    <Content Include="Resources\javascript\jquery.flot.js" />
-    <Content Include="Resources\javascript\jquery.js" />
-    <Content Include="Resources\javascript\main.js" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -183,12 +188,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Icy Monitor Updater\Icy Monitor Updater.csproj">
+      <Project>{2405e12b-9fc8-4043-bdb1-17f053c27919}</Project>
+      <Name>Icy Monitor Updater</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenHardwareMonitorLibrary\OpenHardwareMonitorLib.csproj">
       <Project>{B0397530-545A-471D-BB74-027AE456DF1A}</Project>
       <Name>OpenHardwareMonitorLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Device.datasource" />
     <None Include="Resources\app.manifest">
       <SubType>Designer</SubType>
     </None>

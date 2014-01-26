@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:text="@string/sensor" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:entries="@array/device_spinner"
+                android:id="@+id/spinner_device" />
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:entries="@array/type_spinner_system"
+                android:id="@+id/spinner_type" />
+
+        </LinearLayout>
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:id="@+id/spinner_sensor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:text="@string/condition" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:paddingLeft="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:text="Sensor value is" />
+
+            <Spinner
+                android:layout_width="46dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/spinner_condition"
+                android:entries="@array/condition_spinner" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/editText_value"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="8"
+            android:id="@+id/checkbox_notif_ringonce"
+            android:text="@string/notif_ring_once"
+            android:checked="true" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:id="@+id/button_notification_help"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:src="@drawable/ic_button_help"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/menu_cancel"
+            android:id="@+id/button_cancel"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:textColor="@android:color/primary_text_light" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@android:color/darker_gray" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/button_add"
+            android:id="@+id/button_add"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:textColor="@android:color/primary_text_light" />
+
+    </LinearLayout>
+
+</LinearLayout>

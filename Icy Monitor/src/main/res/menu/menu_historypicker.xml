@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/menu_sort"
+        android:icon="@drawable/ic_action_sort"
+        android:showAsAction="always">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/item_sort_newestFirst"
+                    android:title="@string/menu_sort_newest_first"
+                    android:checked="true" />
+                <item
+                    android:id="@+id/item_sort_oldestFirst"
+                    android:title="@string/menu_sort_oldest_first" />
+            </group>
+        </menu>
+    </item>
+</menu>

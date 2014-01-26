@@ -12,14 +12,10 @@ public class InvalidHttpRequestHandler : HttpRequestHandler {
 
         // Send the HTTP response to the client
         serverResponse.Close();
-
-        // Print a message to console indicate invalid request as well
-        //Console.WriteLine("Invalid request from client. Request string: "
-        //    + context.Request.RawUrl);
-    } // end public void handle(HttpListenerContext context)
+    }
 
     public string GetName() {
         return NAME;
-    } // end public string GetName()
+    }
 
-} // end public class InvalidHttpRequestHandler
+}

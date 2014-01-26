@@ -1,59 +1,35 @@
 ﻿using System;
 using OpenHardwareMonitor.Hardware;
+using System.Linq;
+using System.Collections.Generic;
 
 class JSONSystemData {
-    public JSONNameValue[] Voltages, Temp, Fans;
+    public List<JSONNameValue> Voltages, Temp, Fans;
 
-    public JSONSystemData(Computer computer) {
+    public JSONSystemData(Computer computer, bool names) {
+        // Create lists
+        Voltages = new List<JSONNameValue>();
+        Temp = new List<JSONNameValue>();
+        Fans = new List<JSONNameValue>();
+
         // Find the superIO chip.
-        IHardware superIO = null;
+        IHardware motherboard = computer.Hardware.FirstOrDefault(h => h.HardwareType == HardwareType.Mainboard && h.SubHardware.Length > 0);
+        IHardware superIO;
 
-        foreach (IHardware hardware in computer.Hardware) {
-            if (hardware.HardwareType == HardwareType.Mainboard) {
-                try {
-                    superIO = hardware.SubHardware[0];
-                } catch (Exception e) {
-                    Console.WriteLine(e.Message);
-                    superIO = null;
+        if (motherboard != null) {
+            superIO = motherboard.SubHardware[0];
+
+            foreach (ISensor s in superIO.Sensors) {
+                String name;
+                if (names) name = s.Name;
+                else name = "";
+
+                switch (s.SensorType) {
+                    case SensorType.Voltage: Voltages.Add(new JSONNameValueFloat(name, (float)s.Value, 3)); break;
+                    case SensorType.Fan: Fans.Add(new JSONNameValueInt(name, (int)s.Value)); break;
+                    case SensorType.Temperature: Temp.Add(new JSONNameValueFloat(name, (float)s.Value, 1)); break;
                 }
             }
-        }
-
-        // If we have a superIO chip
-        if (superIO != null) {
-            // Find how much data we have
-            int iVoltages = 0;
-            int iFans = 0;
-            int iTemp = 0;
-
-            foreach (ISensor sensor in superIO.Sensors) {
-                switch (sensor.SensorType) {
-                    case SensorType.Voltage: iVoltages++; break;
-                    case SensorType.Fan: iFans++; break;
-                    case SensorType.Temperature: iTemp++; break;
-                }
-            }
-
-            // Load data
-            Voltages = new JSONNameValue[iVoltages];
-            Fans = new JSONNameValue[iFans];
-            Temp = new JSONNameValue[iTemp];
-
-            iVoltages = 0;
-            iFans = 0;
-            iTemp = 0;
-
-            foreach (ISensor sensor in superIO.Sensors) {
-                switch (sensor.SensorType) {
-                    case SensorType.Voltage: Voltages[iVoltages] = new JSONNameValueFloat(sensor.Name, (float) sensor.Value, 3); iVoltages++; break;
-                    case SensorType.Fan: Fans[iFans] = new JSONNameValueInt(sensor.Name, (int) sensor.Value); iFans++; break;
-                    case SensorType.Temperature: Temp[iTemp] = new JSONNameValueFloat(sensor.Name, (float) sensor.Value, 1); iTemp++; break;
-                }
-            }
-        } else { // If we don't have a superIO chip. Happens with some cheap MBs or with some laptops.
-            Voltages = new JSONNameValue[0];
-            Fans = new JSONNameValue[0];
-            Temp = new JSONNameValue[0];
         }
     }
 }

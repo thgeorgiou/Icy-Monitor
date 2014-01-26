@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icy Monitor Server", "Icy M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenHardwareMonitorLib", "..\OpenHardwareMonitorLibrary\OpenHardwareMonitorLib.csproj", "{B0397530-545A-471D-BB74-027AE456DF1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icy Monitor Updater", "..\Icy Monitor Updater\Icy Monitor Updater.csproj", "{2405E12B-9FC8-4043-BDB1-17F053C27919}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{B0397530-545A-471D-BB74-027AE456DF1A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B0397530-545A-471D-BB74-027AE456DF1A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B0397530-545A-471D-BB74-027AE456DF1A}.Release|x86.ActiveCfg = Release|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2405E12B-9FC8-4043-BDB1-17F053C27919}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
